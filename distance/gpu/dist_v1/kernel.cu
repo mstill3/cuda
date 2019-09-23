@@ -39,7 +39,7 @@ int main()
     // allocate device memory tostore output array
     cudaMalloc(&d_out, N * sizeof(float));
 
-    // launch kernal to copute and store distance values
+    // launch kernel to copute and store distance values
     distanceKernal<<<N/TPB, TPB>>>(d_out, ref, N);    
 
     // free memory
