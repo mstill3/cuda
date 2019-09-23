@@ -1,0 +1,6 @@
+NVCC = /usr/local/cuda/bin/nvcc
+NVCC_FLAGS = -g -G -Xcompiler -Wall
+
+kernal.exe: kernal.cu
+	$(NVCC) $(NVCC_FLAGS) $< -o $@
+
