@@ -6,20 +6,23 @@
 
 // converts int to evenly spaced floats 
 // ie) .1, .2, ..., .5, ..., .9
-__device__ float scale(int i, int n)
+__device__ 
+float scale(int i, int n)
 {
     return ((float) i) / (n - 1);
 }
 
 
 // Computes distance between 2 points on a line
-__device__ float distance(float x1, float x2)
+__device__ 
+float distance(float x1, float x2)
 {
     return sqrt((x2 - x1) * (x2 - x1));
 }
 
 
-__global__ void distanceKernal(float *d_out, float ref, int len)    
+__global__ 
+void distanceKernal(float *d_out, float ref, int len)    
 {
     const int i = blockIdx.x * blockDim.x + threadIdx.x;
     const float x = scale(i, len);
