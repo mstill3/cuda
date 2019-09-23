@@ -1,7 +1,7 @@
-#include "kernal.h"
+#include "kernel.h"
 #include <stdlib.h> // dynamic memory management
 
-#define N 20000000  // constant, large array len
+#define N 64        // constant, large array len
 
 
 // converts int to evenly spaced floats 

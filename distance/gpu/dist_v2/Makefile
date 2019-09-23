@@ -3,12 +3,16 @@ NVCC_FLAGS = -g -G -Xcompiler -Wall
 
 all: main.exe
 
-main.exe: main.o aux_functions.o
-	$(NVCC) $< -o $@
+# $@ means target
+# $< means use first arg
+# $^ means use all args(dependents)
 
-main.o: main.cpp aux_functions.h
+main.exe: main.o kernel.o
+	$(NVCC) $^ -o $@
+
+main.o: main.cpp
 	$(NVCC) $(NVCC_FLAGS) -c $< -o $@
 
-aux_functions.o: aux_functions.cpp aux_functions.h
+kernel.o: kernel.cu
 	$(NVCC) $(NVCC_FLAGS) -c $< -o $@
 
